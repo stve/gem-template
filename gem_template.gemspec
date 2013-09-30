@@ -1,21 +1,25 @@
-# encoding: utf-8
+# coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'gem_template/version'
 
-Gem::Specification.new do |gem|
-  gem.name        = 'gem_template'
-  gem.version     = GemTemplate::VERSION
-  gem.homepage    = ''
+Gem::Specification.new do |spec|
+  spec.name          = 'gem_template'
+  spec.version       = GemTemplate::VERSION
+  spec.homepage      = ''
 
-  gem.author      = "Steve Agalloco"
-  gem.email       = 'steve.agalloco@gmail.com'
-  gem.description = %q{TODO: Write a gem description}
-  gem.summary     = %q{TODO: Write a gem summary}
+  spec.author        = "Steve Agalloco"
+  spec.email         = 'steve.agalloco@gmail.com'
+  spec.description   = %q{TODO: Write a gem description}
+  spec.summary       = %q{TODO: Write a gem summary}
 
-  gem.executables = `git ls-files -- bin/*`.split("\n").map{|f| File.basename(f)}
-  gem.files       = `git ls-files`.split("\n")
-  gem.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
+  spec.licenses      = ['MIT']
 
-  gem.require_paths = ['lib']
+  spec.executables   = Dir.glob("bin/**/*")
+  spec.files         = %w(.yardopts LICENSE.md README.md Rakefile gem_template.gemspec)
+  spec.files         += Dir.glob("lib/**/*.rb")
+  spec.files         += Dir.glob("spec/**/*")
+  spec.test_files    = Dir.glob("spec/**/*")
+
+  spec.require_paths = ['lib']
 end
